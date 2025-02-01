@@ -70,13 +70,10 @@
       #projects { background: linear-gradient(120deg, #000000, #001a33); }
       #skills { background: linear-gradient(120deg, #001a33, #000000); }
       #belog { background: linear-gradient(120deg, #000000, #001d3f); }
-      #contact { background: linear-gradient(120deg, #001d3f, #000000); }
       .HomeContainer,
       .CaseStudiesContainer,
       .TestimonialsContainer,
-      .SkillsContainer,
-      .BelogContainer,
-      .ContactContainer {
+      .SkillsContainer{
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -86,6 +83,18 @@
         border-radius: 12px;
         box-shadow: 0px 8px 24px rgba(0, 191, 255, 0.5);
         transition: transform 0.3s ease;
+      }
+      .BlogContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 70%;
+        padding: 20px;
+        background-color: #000;
+        border-radius: 12px;
+        box-shadow: 0px 8px 24px rgba(0, 191, 255, 0.5);
+        transition: transform 0.3s ease;
+        
       }
       h1 {
         font-size: 2.5em;
@@ -202,10 +211,10 @@
         .HomeContainer,
         .CaseStudiesContainer,
         .TestimonialsContainer,
-        .SkillsContainer,
-        .BelogContainer,
-        .ContactContainer {
-          flex-direction: column;
+        .SkillsContainer {
+          max-width: 90%;
+        }
+        .BlogContainer {
           max-width: 90%;
         }
         h1 {
@@ -235,6 +244,125 @@
         display: flex;
         justify-content: space-between;
       }
+      /* Blogs Section Specific Styles */
+      .blog-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #ccc;
+      }
+      .blog-table th,
+      .blog-table td {
+        padding: 12px;
+        border: 1px solid #00bfff;
+        text-align: left;
+      }
+      .blog-table th {
+        background-color: #001d3f;
+        color: #00bfff;
+        font-weight: bold;
+      }
+      .blog-table tr:hover {
+        background-color: rgba(0, 191, 255, 0.1);
+      }
+      .blog-table a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .blog-table a:hover {
+        color: #009acb;
+        text-decoration: underline;
+      }
+      /* Responsive Table */
+      @media (max-width: 768px) {
+        .blog-table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+        .blog-table th,
+        .blog-table td {
+          padding: 8px;
+        }
+      }
+      .home-img .img-box {
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after
+{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent,transparent,#390ad5);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after{
+    animation-delay: -5s ;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    border-radius: 50%;
+    border: .1px solid #1f242d;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+.home-img .img-box .img-item img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1; 
+}
+
+.bars-animation .bar{
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+         transform: translateY(0%);
+    }
+}
     </style>
   </head>
   <body>
@@ -247,217 +375,17 @@
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#belog">Blogs</a>
-        <a href="#contact">Get In Touch</a>
       </nav>
     </header>
-  <!--Home Sections -->
-  <section id="home" class="section">
-        <div class="HomeContainer">
-          <div class="text-section" style="text-align: center;">
-            <h1>𝓦𝓮𝓵𝓬𝓸𝓶𝓮</h1>
-            <div class="text-decoration">
-              <p>"𝓤𝓷𝓵𝓸𝓬𝓴𝓲𝓷𝓰 𝓽𝓱𝓮 𝓟𝓸𝔀𝓮𝓻 𝓸𝓯 𝓓𝓪𝓽𝓪 𝓽𝓸 𝓓𝓻𝓲𝓿𝓮 𝓘𝓷𝓷𝓸𝓿𝓪𝓽𝓲𝓸𝓷 𝓪𝓷𝓭 𝓢𝓸𝓵𝓿𝓮 𝓒𝓸𝓶𝓹𝓵𝓮𝔁 𝓟𝓻𝓸𝓫𝓵𝓮𝓶𝓼"</p>
-              <p>"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐦𝐲 𝐩𝐨𝐫𝐭𝐟𝐨𝐥𝐢𝐨! 𝐈'𝐦 𝐀𝐲𝐞𝐬𝐡𝐚𝐡 𝐓𝐚𝐫𝐢𝐪, 𝐚 𝐩𝐚𝐬𝐬𝐢𝐨𝐧𝐚𝐭𝐞 𝐃𝐚𝐭𝐚 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐞𝐧𝐭𝐡𝐮𝐬𝐢𝐚𝐬𝐭 𝐝𝐫𝐢𝐯𝐞𝐧 𝐛𝐲 𝐭𝐡𝐞 𝐩𝐨𝐰𝐞𝐫 𝐨𝐟 𝐝𝐚𝐭𝐚 𝐭𝐨 𝐮𝐧𝐜𝐨𝐯𝐞𝐫 𝐡𝐢𝐝𝐝𝐞𝐧 𝐢𝐧𝐬𝐢𝐠𝐡𝐭𝐬 𝐚𝐧𝐝 𝐜𝐫𝐞𝐚𝐭𝐞 𝐦𝐞𝐚𝐧𝐢𝐧𝐠𝐟𝐮𝐥 𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧𝐬. 𝐋𝐞𝐭'𝐬 𝐞𝐱𝐩𝐥𝐨𝐫𝐞 𝐡𝐨𝐰 𝐈 𝐮𝐬𝐞 𝐝𝐚𝐭𝐚 𝐭𝐨 𝐦𝐚𝐤𝐞 𝐚 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐜𝐞!"</p>
-              <p>"Let’s explore how I use data to make a difference!"</p>
-            </div>
-          </div>
-          <div class="image-section" style="margin-top: 20px;">
-            <img src="WhatsApp Image 2025-01-09 at 21.25.05_c667351e.jpg"alt="Profile Image"style="width: 80%; height: auto; border-radius: 10%; transition: transform 0.3s ease;"onmouseover="this.style.transform='scale(1.05)';"onmouseout="this.style.transform='scale(1)';"/>
-          </div>
-        </div>
-    </section>
-  <!-- Case Studies Section -->
-  <section id="case-studies" class="section">
-    <div class="CaseStudiesContainer">
-      <div>
-        <h1>Education</h1>
-        <div class="education">
-          <div class="timeline">
-            <span class="year">2018 - 2020</span>
-            <p></p>
-            <span class="sub">Matric - The Educators School</span>
-          </div>
-          <div class="timeline">
-            <span class="year">2020 - 2022</span>
-            <p></p>
-            <span class="sub">Inter - Fusion College Of Science</span>
-          </div>
-          <div class="timeline">
-            <p></p>
-            <span class="year">2022 - 2026</span>
-            <span class="sub">Bs - University Of Management And Technology</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Testimonials Section -->
-  <section id="projects" class="section">
-    <div class="TestimonialsContainer">
-      <div>
-        <h1>Projects</h1>
-        <div class="experience">
-          <p>"Here, you’ll find a collection of my projects, skills, and experiences that showcase my journey in transforming data into actionable knowledge."</p>
-          <div class="projects">
-            <div class="timeline">
-              <span class="year">First January 2023</span>
-              <p></p>
-              <a href="https://github.com/AyeshaTariq8727/Book-Recommendation-System"><p class="sub">Book Recommendation System</p></a>
-            </div>
-            <div class="timeline">
-              <span class="year">2019 - 2021</span>
-              <p></p>
-              <a href="link-to-second-company"><p class="sub">Second Company - Lorem ipsum dolor sit amet.</p></a>
-            </div>
-            <div class="timeline">
-              <p></p>
-              <span class="year">2021 - 2023</span>
-              <a href="link-to-third-company"><p class="sub">Third Company - Lorem ipsum dolor sit amet</p></a>
-            </div>
-            <div class="timeline">
-              <p></p>
-              <span class="year">2023 - 2025</span>
-              <a href="link-to-fourth-company"><p class="sub">Fourth Company - Lorem ipsum dolor sit</p></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="SkillsContainer">
-      <div>
-        <h1>Skills</h1>
-        <div class="experience">
-          <p>Unlock Your Project's Potential with My Expertise</p>
-          <div class="skillitems">
-            <div class="line">
-              <span class="year">Programming Languages</span>
-              <p></p>
-              <p class="sub">Python</p>
-              <p class="sub">JavaScript</p>
-              <p class="sub">C++</p>
-            </div>
-            <div class="line">
-              <span class="year">Data Science Tools</span>
-              <p></p>
-              <p class="sub">TensorFlow</p>
-              <p class="sub">NumPy</p>
-              <p class="sub">Pandas</p>
-            </div>
-          </div>
-      </div>
-    </div>
-    </div>
-  </section>
-  <!-- Belog Section --> 
-  <section id="belog" class="section">
-    <div class="BelogContainer">
-      <div>
-        <h1>Blogs</h1>
-          <div class="experience">
-            <p>Discover my most recent projects and artistic pursuits.</p>
-          <div>
-      <div class="blogitem">
-        <div class="blogitems">
-          <div class="line">
-                <span class="year">The Data Mining</span>
-                <p></p>
-                <a href="https://github.com/AyeshaTariq8727/Data-Mining/blob/main/README.md"><p class="sub">Understanding The Data Mining</p></a>
-          </div>
-          <div class="line">
-            <span class="year">The Power of Your Data</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Unlocking-the-Power-of-Your-Data-The-Art-and-Science-of-Data-Preprocessing/tree/main/README.md"><p class="sub">The Art and Science of Data</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Insights from Your Data</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/The-Power-of-Data-Exploration-and-Visualization-Unlocking-Insights-from-Your-Data"><p class="sub">Data's Power Exploration & Visualization</p></a>
-          </div>
-        </div>
-        <div class="blogitems">
-          <div class="line">
-            <span class="year">Unveiling Hidden Patterns</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Mine-Scope/blob/main/README.md"><p class="sub">The Power of Data Mining Now's Days</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Clustering Algorithms</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Clustering-Algorithms/blob/main/README.md"><p class="sub">Unraveling K-Means and DBSCAN</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Unstructured Text Analyzer</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Unstructured-Text-Analyzer/blob/main/README.md"><p class="sub">Insights from Unstructured Text Data</p></a>
-          </div>
-        </div>
-        <div class="blogitems">
-          <div class="line">
-            <span class="year">Dataset Mining Tools</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Dataset-Mining-Tools/blob/main/README.md"><p class="sub">Pattern Discovery in Large Datasets</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Cyber Anomaly Detection</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Cyber-Anomaly-Detection/blob/main/README.md"><p class="sub">Anomaly Detection, Algorithms and Applications</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Apriori Association Mining</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Apriori-Association-Mining/blob/main/README.md"><p class="sub">Association Rule Mining with Apriori Algorithm</p></a>
-          </div>
-        </div>
-        <div class="blogitems">
-          <div class="line">
-            <span class="year">Data Cleaning Techniques</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Data-Cleaning-Techniques/blob/main/README.md"><p class="sub">Data Cleaning Techniques</p></a>
-          </div> 
-          <div class="line">
-            <span class="year">Data Visualization Tools </span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Data-Visualization-Tools/blob/main/README.md"><p class="sub">Data Visualization Tools</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Exploratory Data Analysis (EDA)</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Exploratory-Data-Analysis-EDA-/blob/main/README.md"><p class="sub">Exploratory Data Analysis (EDA)</p></a>
-          </div>
-        </div>
-        <div class="blogitems">
-          <div class="line">
-            <span class="year">Titanic Survival Prediction</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Titanic-Survival-Prediction/blob/main/README.md"><p class="sub">Titanic Survival Prediction</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Time Series Analysis</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Time-Series-Analysis/blob/main/README.md"><p class="sub">Time Series Analysis</p></a>
-          </div>
-          <div class="line">
-            <span class="year">Stock Price Prediction</span>
-            <p></p>
-            <a href="https://github.com/AyeshaTariq8727/Stock-Price-Prediction/blob/main/README.md"><p class="sub">Stock Price Prediction</p></a>
-          </div>
-        </div>
-        </div>
-    </div>
-      </div>
-    </div>
-    </div>
-  </section>
-  <!-- Contact Section -->
-    <section id="contact" class="section">
-      <div class="ContactContainer">
-        <div>
-          <h1>Get In Touch</h1>
-          <p>Contact me on your preferred platform below:</p>
-          <div>
+    <!-- Home Section -->
+    <section id="home" class="section">
+      <div class="HomeContainer">
+        <div class="text-section" style="text-align: center;">
+          <h1>𝓦𝓮𝓵𝓬𝓸𝓶𝓮</h1>
+          <div class="text-decoration">
+            <p>"𝓤𝓷𝓵𝓸𝓬𝓴𝓲𝓷𝓰 𝓽𝓱𝓮 𝓟𝓸𝔀𝓮𝓻 𝓸𝓯 𝓓𝓪𝓽𝓪 𝓽𝓸 𝓓𝓻𝓲𝓿𝓮 𝓘𝓷𝓷𝓸𝓿𝓪𝓽𝓲𝓸𝓷 𝓪𝓷𝓭 𝓢𝓸𝓵𝓿𝓮 𝓒𝓸𝓶𝓹𝓵𝓮𝔁 𝓟𝓻𝓸𝓫𝓵𝓮𝓶𝓼"</p>
+            <p>"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐦𝐲 𝐩𝐨𝐫𝐭𝐟𝐨𝐥𝐢𝐨! 𝐈'𝐦 𝐀𝐲𝐞𝐬𝐡𝐚𝐡 𝐓𝐚𝐫𝐢𝐪, 𝐚 𝐩𝐚𝐬𝐬𝐢𝐨𝐧𝐚𝐭𝐞 𝐃𝐚𝐭𝐚 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐞𝐧𝐭𝐡𝐮𝐬𝐢𝐚𝐬𝐭 𝐝𝐫𝐢𝐯𝐞𝐧 𝐛𝐲 𝐭𝐡𝐞 𝐩𝐨𝐰𝐞𝐫 𝐨𝐟 𝐝𝐚𝐭𝐚 𝐭𝐨 𝐮𝐧𝐜𝐨𝐯𝐞𝐫 𝐡𝐢𝐝𝐝𝐞𝐧 𝐢𝐧𝐬𝐢𝐠𝐡𝐭𝐬 𝐚𝐧𝐝 𝐜𝐫𝐞𝐚𝐭𝐞 𝐦𝐞𝐚𝐧𝐢𝐧𝐠𝐟𝐮𝐥 𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧𝐬. 𝐋𝐞𝐭'𝐬 𝐞𝐱𝐩𝐥𝐨𝐫𝐞 𝐡𝐨𝐰 𝐈 𝐮𝐬𝐞 𝐝𝐚𝐭𝐚 𝐭𝐨 𝐦𝐚𝐤𝐞 𝐚 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐜𝐞!"</p>
+            <p>"Let’s explore how I use data to make a difference!"</p>
             <div class="contact-icons">
               <a href="mailto:F2022332073@umt.edu.pk" title="Email"><i class="fas fa-envelope"></i></a>
               <a href="https://wa.link/33p8o9" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -466,8 +394,228 @@
               <a href="https://github.com/AyeshaTariq8727" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
+        </div>
+
+        <div class="home-img">
+          <div class="img-box">
+            <div class="img-item">
+              <img src="WhatsApp Image 2025-02-01 at 23.55.51_c5a93809.jpg" alt="Profile Image" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';"/>
+            </div>
+              <div class="bars-animation">
+                  <div class="bar" style="--i:1">
+                    <div class="bar-in" style="background-color: #ff69b4;"></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>    
       </div>
     </section>
+    <!-- Education Section -->
+    <section id="case-studies" class="section">
+      <div class="CaseStudiesContainer">
+        <div>
+          <h1>Education</h1>
+          <div class="education">
+            <div class="timeline">
+              <span class="year">2018 - 2020</span>
+              <p></p>
+              <span class="sub">Matric - The Educators School</span>
+            </div>
+            <div class="timeline">
+              <span class="year">2020 - 2022</span>
+              <p></p>
+              <span class="sub">Inter - Fusion College Of Science</span>
+            </div>
+            <div class="timeline">
+              <p></p>
+              <span class="year">2022 - 2026</span>
+              <span class="sub">Bs - University Of Management And Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="TestimonialsContainer">
+        <div>
+          <h1>Projects</h1>
+          <div class="experience">
+            <p>"Here, you’ll find a collection of my projects, skills, and experiences that showcase my journey in transforming data into actionable knowledge."</p>
+            <div class="projects">
+              <div class="timeline">
+                <span class="year">First January 2023</span>
+                <p></p>
+                <a href="https://github.com/AyeshaTariq8727/Book-Recommendation-System"><p class="sub">Book Recommendation System</p></a>
+              </div>
+              <div class="timeline">
+                <span class="year">2019 - 2021</span>
+                <p></p>
+                <a href="link-to-second-company"><p class="sub">Second Company - Lorem ipsum dolor sit amet.</p></a>
+              </div>
+              <div class="timeline">
+                <p></p>
+                <span class="year">2021 - 2023</span>
+                <a href="link-to-third-company"><p class="sub">Third Company - Lorem ipsum dolor sit amet</p></a>
+              </div>
+              <div class="timeline">
+                <p></p>
+                <span class="year">2023 - 2025</span>
+                <a href="link-to-fourth-company"><p class="sub">Fourth Company - Lorem ipsum dolor sit</p></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="SkillsContainer">
+        <div>
+          <h1>Skills</h1>
+          <div class="experience">
+            <p>Unlock Your Project's Potential with My Expertise</p>
+            <div class="skillitems">
+              <div class="line">
+                <span class="year">Programming Languages</span>
+                <p></p>
+                <p class="sub">Python</p>
+                <p class="sub">JavaScript</p>
+                <p class="sub">C++</p>
+              </div>
+              <div class="line">
+                <span class="year">Data Science Tools</span>
+                <p></p>
+                <p class="sub">TensorFlow</p>
+                <p class="sub">NumPy</p>
+                <p class="sub">Pandas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blogs Section -->
+    <section id="belog" class="section">
+      <div class="BlogContainer">
+        <h1>Blogs</h1>
+        <p>Discover my most recent projects and artistic pursuits.</p>
+        <table border="1" class="blog-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The Data Mining</td>
+              <td>Data Mining: An In-Depth Overview</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Data-Mining/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Data's Power</td>
+              <td>The Power of Your Data: The Art and Science of Data</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Unlocking-the-Power-of-Your-Data-The-Art-and-Science-of-Data-Preprocessing/tree/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Look Inside</td>
+              <td>Insights from Your Data: Data's Power Exploration & Visualization</td>
+              <td><a href="https://github.com/AyeshaTariq8727/The-Power-of-Data-Exploration-and-Visualization-Unlocking-Insights-from-Your-Data/tree/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Machine Learning</td>
+              <td>Unveiling Hidden Patterns: The Power of Data Mining Now's Days</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Mine-Scope/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Clustering Algorithms</td>
+              <td>Unraveling K-Means and DBSCAN</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Clustering-Algorithms/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Unstructured Text Analyzer</td>
+              <td>Insights from Unstructured Text Data</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Unstructured-Text-Analyzer/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Dataset Mining Tools</td>
+              <td>Pattern Discovery in Large Datasets</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Dataset-Mining-Tools/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Cyber Anomaly Detection</td>
+              <td>Anomaly Detection, Algorithms and Applications</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Cyber-Anomaly-Detection/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Apriori Association Mining</td>
+              <td>Association Rule Mining with Apriori Algorithm</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Apriori-Association-Mining/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Data Cleaning Techniques</td>
+              <td>Data Cleaning Techniques</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Data-Cleaning-Techniques/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Data Visualization Tools</td>
+              <td>Data Visualization Tools</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Data-Visualization-Tools/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Exploratory Data Analysis (EDA)</td>
+              <td>Exploratory Data Analysis (EDA)</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Exploratory-Data-Analysis-EDA-/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Titanic Survival Prediction</td>
+              <td>Titanic Survival Prediction</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Titanic-Survival-Prediction/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Time Series Analysis</td>
+              <td>Time Series Analysis</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Time-Series-Analysis/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Stock Price Prediction</td>
+              <td>Stock Price Prediction</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Stock-Price-Prediction/blob/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Customer Segmentation</td>
+              <td>Natural Language Processing – Transforming Human-Machine Interaction</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Natural-Language-Processing/tree/main">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Clustering Analysis</td>
+              <td>AI Ethics – Challenges in Responsible AI Development</td>
+              <td><a href="https://github.com/AyeshaTariq8727/AI-Ethics">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Decision Trees</td>
+              <td>Computer Vision and Its Real-World Applications</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Decision-Trees">Read More</a></td>
+            </tr>
+            <tr>
+              <td>Random Forest</td>
+              <td>Reinforcement Learning – A Beginner’s Guide to Markov Decision Processes</td>
+              <td><a href="https://github.com/AyeshaTariq8727/Random-Forest">Read More</a></td>
+            </tr>
+            <tr>
+              <td>AI Healthcare</td> 
+              <td>AI in Healthcare – Innovations and Challenges</td>
+              <td><a href="https://github.com/AyeshaTariq8727/AI-Healthcare/tree/main">Read More</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
     <script>
       // Smooth scrolling for navbar links
       document.querySelectorAll("nav a").forEach((anchor) => {
@@ -504,5 +652,4 @@
       });
     </script>
   </body>
-</html>
 </html>
